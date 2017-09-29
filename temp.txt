@@ -1,0 +1,191 @@
+if (!defined("BASE_PATH")) define('BASE_PATH', isset($_SERVER['DOCUMENT_ROOT']) ? $_SERVER['DOCUMENT_ROOT'] : substr($_SERVER['PATH_TRANSLATED'],0, -1*strlen($_SERVER['SCRIPT_NAME'])));
+
+
+$zones = array();
+  $zones['Pacific/Honolulu']     = 'Hawaii-Aleutian Standard Time (HAST)';
+  $zones['US/Aleutian']          = 'Hawaii-Aleutian with Daylight Savings Time (HADT)';
+  $zones['Etc/GMT+9']            = 'Alaska Standard Time (AKST)';
+  $zones['America/Anchorage']    = 'Alaska with Daylight Savings Time (AKDT)';
+  $zones['America/Dawson_Creek'] = 'Pacific Standard Time (PST)';
+  $zones['PST8PDT']              = 'Pacific with Daylight Savings Time (PDT)';
+  $zones['MST']                  = 'Mountain Standard Time (MST)';
+  $zones['MST7MDT']              = 'Mountain with Daylight Savings Time (MDT)';
+  $zones['Canada/Saskatchewan']  = 'Central Standard Time (CST)';
+  $zones['CST6CDT']              = 'Central with Daylight Savings Time (CDT)';
+  $zones['EST']                  = 'Eastern Standard Time (EST)';
+  $zones['EST5EDT']              = 'Eastern with Daylight Savings Time (EDT)';
+  $zones['America/Puerto_Rico']  = 'Atlantic Standard Time (AST)';
+  $zones['America/Halifax']      = 'Atlantic with Daylight Savings Time (ADT)';
+
+$db = new mysqli('localhost',username,password);
+$database="somedatabase";
+$query="SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME=?";
+$stmt = $db->prepare($query);
+$stmt->bind_param('s',$database);
+$stmt->execute();
+$stmt->bind_result($data);
+if($stmt->fetch())
+{
+    echo "Database exists.";
+}
+else
+{
+    echo"Database does not exist!!!";
+}
+$stmt->close();
+
+
+function __autoload($class_name) {
+	if(file_exists($class_name . '.php')) {
+		require_once($class_name . '.php');
+	} else {
+		throw new Exception("Unable to load $class_name.");
+	}
+}
+
+try {
+	$a = new Test();
+	$b = new Image();
+} catch (Exception $e) {
+	echo $e->getMessage(), "\n";
+}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	function getIndividualVal($uid, $fields=FALSE, $table=FALSE) {
+		$return = array();
+		$stringOFields = "";
+		if (!$table) $table = $this->tableName . $this->tableSuffix;
+		if (!$fields) $stringOFields = "";
+		else {
+			$pieces = explode(", ", $fields);
+			$no = count($pieces);
+			for ($i=0;$i<$no;$i++) {
+				$trimmed = trim($pieces[$i]); // just in case: no spaces around 'field names'
+				$stringOFields .= "`$trimmed`, ";
+				$$trimmed = $trimmed;
+				//echo $trimmed;
+			}
+			//echo " $no --> ".$stringOFields."<br>";
+		}
+		$query = "SELECT `uid`, `crdate`, `tstamp`, `hidden`, `deleted`, ";
+		$query .= $stringOFields;
+		$query .= " `pid`, `fid` FROM `".$table."` WHERE `uid`= ".$uid." AND `deleted` = 0 ORDER BY `uid` ASC";
+		//echo "<br>".$query."</br>";
+		$sql_connect = @new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+		$sql_connect->set_charset($this->charset);
+		if (mysqli_connect_error())
+		die("Cannot connect to database! ");
+		else {
+			if($result = $sql_connect->query($query)) {
+				$rows = $result->num_rows;
+				$cols = $result->field_count;
+				//$result = $sql_connect->query($query);
+				$row = $result->fetch_assoc();
+				if ($fields AND $rows > 0) {
+					$return['uid'] = $row['uid'];
+					$return['crdate'] = $row['crdate'];
+					$return['tstamp'] = $row['tstamp'];
+					$return['hidden'] = $row['hidden'];
+					$return['deleted'] = $row['deleted'];
+					$pieces = explode(", ", $fields);
+					$no = count($pieces);
+					for ($i=0;$i<$no;$i++) {
+						$trimmed = trim($pieces[$i]);
+						$$trimmed = $row[$trimmed];
+						//echo "<br>".$trimmed." = ".$$trimmed."<br>";
+						$return[$trimmed] = $$trimmed;
+					}
+					$return['pid'] = $row['pid'];
+					$return['fid'] = $row['fid'];
+					echo "<pre>";
+					print_r($return);
+					//print_r($row);
+					echo "</pre>";												
+				} else {}
+			}
+		}
+		return $return;
+	}
+	
+	protected static function makeNextButton($thearray,$thekey,$thelabel,$thetype) {
+		$return_string = "";
+		while ($config = each($thearray[$thekey][$thelabel][$thetype])) {
+			$name = $config['key'];
+			$value = $config['value'];
+			$return_string .= $name."=\"".$value."\" ";
+		}
+		$return_string = $this->truncateReturn($return_string,1);
+		$return_string .= ">";
+		return $return_string;
+	}
+	
+	function displayInfo($a_data) {
+		$display = "";
+		$return = array();
+		$format = '%d-%m-%Y at %k:%M:%S hrs';
+		//strftime($format,$maxpoint);
+		if ($a_data) {
+			$uid = $a_data['uid'];
+			$crdate = $a_data['crdate'];
+			$crdate = strftime($format,$crdate);
+			$tstamp = $a_data['tstamp'];
+			$tstamp = strftime($format,$tstamp);
+			$deleted = $a_data['deleted'];
+			$hidden = $a_data['hidden'];
+			$edited = $a_data['edited'];
+			if (array_key_exists('gruppe', $a_data)) {
+				if ($a_data['gruppe'] == 0) $group = "not yet selected";
+				else $group = $a_data['gruppe'];			
+			}
+			else {
+				$group = "not available";
+			}
+			$display = "<div class=\"metainfo\" id=\"metai\">\n<p>";
+			if ($deleted == 1) {
+				$display .= "Record <b class=\"errormsg\"> 'DELETED'</b></p>\n<p>";
+			}
+			else {
+				if ($hidden == 1) {
+					$display .= "Record <b class=\"errormsg\"> 'HIDDEN'</b></p>\n<p>";
+				}
+				if ($edited == 1) {
+					$display .= "Record fully<b class=\"errormsg\"> 'EDITED'</b></p>\n<p>";
+				}
+			}
+			
+			$display .= "Group: <b>".$group."</b>";
+			$display .= "</p>\n<p>";
+			$display .= "This is uid: <b>".$uid."</b>";
+			$display .= "</p>\n<p>";
+			$display .= "Created on: <b>".$crdate."</b>";
+			$display .= "</p>\n<p>";
+			$display .= "Last  changed: <b>".$tstamp."</b>";
+			$display .= "</div>\n";
+			
+			$return['hidden'] = $hidden;
+			$return['deleted'] = $deleted;
+			$return['html'] = $display;
+		} else {
+			$return['deleted'] = NULL;
+			$return['html'] = "<p>Record <b class=\"errormsg\">'DELETED'</b> from table.</p>";
+		}
+		return $return;
+	}

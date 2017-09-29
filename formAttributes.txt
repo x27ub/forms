@@ -1,0 +1,53 @@
+for textarea
+Attribute 	Value 	Description
+autofocus 	autofocus 	Specifies that a text area should automatically get focus when the page loads
+cols 	number 	Specifies the visible width of a text area
+dirname 	textareaname.dir 	Specifies that the text direction of the textarea will be submitted
+disabled 	disabled 	Specifies that a text area should be disabled
+form 	form_id 	Specifies one or more forms the text area belongs to
+maxlength 	number 	Specifies the maximum number of characters allowed in the text area
+name 	text 	Specifies a name for a text area
+placeholder 	text 	Specifies a short hint that describes the expected value of a text area
+readonly 	readonly 	Specifies that a text area should be read-only
+required 	required 	Specifies that a text area is required/must be filled out
+rows 	number 	Specifies the visible number of lines in a text area
+wrap 	hard
+soft 	Specifies how the text in a text area is to be wrapped when submitted in a form
+
+
+global attributes
+Attribute 	Description
+accesskey 	Specifies a shortcut key to activate/focus an element
+class 	Specifies one or more classnames for an element (refers to a class in a style sheet)
+contenteditable 	Specifies whether the content of an element is editable or not
+contextmenu 	Specifies a context menu for an element. The context menu appears when a user right-clicks on the element
+data-* 	Used to store custom data private to the page or application
+dir 	Specifies the text direction for the content in an element
+draggable 	Specifies whether an element is draggable or not
+dropzone 	Specifies whether the dragged data is copied, moved, or linked, when dropped
+hidden 	Specifies that an element is not yet, or is no longer, relevant
+id 	Specifies a unique id for an element
+lang 	Specifies the language of the element's content
+spellcheck 	Specifies whether the element is to have its spelling and grammar checked or not
+style 	Specifies an inline CSS style for an element
+tabindex 	Specifies the tabbing order of an element
+title 	Specifies extra information about an element
+translate 	Specifies whether the content of an element should be translated or not
+
+global events
+onafterprint 	script 	Script to be run after the document is printed
+onbeforeprint 	script 	Script to be run before the document is printed
+onbeforeunload 	script 	Script to be run when the document is about to be unloaded
+onerror 	script 	Script to be run when an error occurs
+onhashchange 	script 	Script to be run when there has been changes to the anchor part of the a URL
+onload 	script 	Fires after the page is finished loading
+onmessage 	script 	Script to be run when the message is triggered
+onoffline 	script 	Script to be run when the browser starts to work offline
+ononline 	script 	Script to be run when the browser starts to work online
+onpagehide 	script 	Script to be run when a user navigates away from a page
+onpageshow 	script 	Script to be run when a user navigates to a page
+onpopstate 	script 	Script to be run when the window's history changes
+onresize 	script 	Fires when the browser window is resized
+onstorage 	script 	Script to be run when a Web Storage area is updated
+onunload 	script 	Fires once a page has unloaded (or the browser window has been closed)
+

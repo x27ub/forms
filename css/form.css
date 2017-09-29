@@ -1,0 +1,297 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	font-family: sans-serif;
+	font-size: 14px;
+	color: #253966;
+}
+
+body {
+	background: #fefefe;
+}
+
+h1 {
+	font-size: 22px;
+}
+
+h1 + p, h1 {
+	text-align: center;
+}
+
+a.links, a.download {
+	background: #eee;
+ 	margin: 10px 50px 10px 15px;
+ 	padding: 5px;
+ 	font-family: Tahoma, Geneva, sans-serif;
+ 	font-size: 110%;
+}
+
+a.download {
+ 	margin: 10px 10px 10px 0px;
+ 	padding: 0px 5px 5px 5px;
+}
+
+a:hover {
+	background: #fff;	
+}
+
+.addInfo {
+	border: #7be34d 3px solid;
+	border-radius: 5px;
+	color: #1818181;
+	margin: 0px;
+	padding: 10px;
+	/*text-align: center;*/
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.files, .download, .metainfo {
+	text-align: left;
+}
+
+div.download, div.links {
+	border: #0d389a 3px solid;
+	border-radius: 5px;
+	color: #1818181;
+	margin: 10px;
+	padding: 10px;
+	width: 50%;
+}
+
+table.download {
+	background-color: #eee;
+	/*border: 2px solid;*/
+	margin: 20px 0px 20px 5px;
+	padding: 10px;	
+}
+
+table.download th {
+	padding: 10px;
+}
+	
+table.download td {
+	padding: 5px 0px 5px 10px;
+ 	text-align: left;
+}
+
+table.download td:nth-child(2n+2) {
+	text-align: center;
+}
+
+div.links {
+	
+}
+
+#indicator {
+  width: 30px;
+  height: 30px;
+  border: #181818 1px solid;
+  border-radius: 5px;
+}
+
+#newentry {
+	font-family: arial,sans-serif;
+	font-size: 16px;
+	margin: 8px;
+}
+
+.reqstar {
+	color: red;
+	font-weight: bold;
+}
+
+fieldset * {
+	font-family: arial,sans-serif;
+	font-size: 14px;
+}
+
+/* #myFormCont */
+ fieldset {
+	background-color: #f9f9f9;
+	border: #0d389a 3px solid;
+	border-radius: 5px;
+	margin: 20px 50px;
+	padding: 20px;
+}
+
+/* #myFormCont > */
+form  > fieldset > legend {
+	font-size: 18px;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: #0d389a;
+	padding: 0px 10px 10px;
+}
+
+form > input {
+	position: relative; left: 40px; top: -20px;	
+}
+
+label {
+	display: block;
+	color: #0d389a;
+	font-weight: bold;
+}
+
+input, select, textarea {
+	display: block;
+}
+
+ul li input {
+	border: none;
+	display: inline;
+	background-color: #fdfbbf;
+}
+
+ul li {
+	width: 150px;
+	background-color: #fdfbbf;
+	margin: -10px;
+}
+
+input, textarea, select {
+	border: 1px solid #666666;
+	background-color: #fdfbbf;
+	background: url(bg.gif) repeat;
+	color: #181818;
+	padding: 2px 5px;
+	margin: 5px 15px 20px;
+}
+
+.button {
+	padding: 5px;
+	border-radius: 5px;	
+}
+
+#sub, #sub_form, #next_form,  #next, #previous, #prev, #save, #Save, #query {
+	background-color: #7be34d;
+	background: url(bggreen.gif) repeat;
+	color: black;
+	margin-bottom: 10px;
+	width: 150px;
+	height: 40px;
+	border-radius: 10px;
+}
+
+#next, #next_form {
+	position: relative;
+	top: -30px; /* diff 59px */
+	left: 1000px;
+}
+
+#previous, #prev, #new {
+	position: relative;
+	top: 20px;
+/*	top: 16px; */
+}
+
+#new {
+	background-color: red;
+	background: url(bgred.gif) repeat;
+	border-radius: 5px;
+}
+
+#res, #res_form {
+	background-color: #ff1b1b;
+	background: url(bgred.gif) repeat;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.in_w1, .sel_w1 {
+	width: 320px;
+}
+
+.number {
+	width: 60px;
+}
+
+textarea {
+	width: 220px;
+	height: 140px;
+}
+
+input:focus, textarea:focus, select:focus {
+	border: 3px solid #d0ac68;
+}
+
+.r {
+	position: relative;
+	left: 500px;
+	top: -35px;
+}
+
+.m {
+  margin-bottom: -5px;
+}
+
+table#results {
+	padding: 25px;
+}
+
+table#results td,table#results th {
+	padding: 5px 15px;
+}
+
+table#results tr:first-child {
+	background-color: #abcdef;
+}
+table#results tr:nth-child (2n) {
+	background-color: yellow;
+}
+
+table#results tr.even {
+	background-color: #ddeeff;
+}
+
+table#results tr.odd {
+	background-color: #dedede;
+}
+
+table#results th.datetime {
+	padding: 5px 30px;
+}
+
+table#results th.date {
+	padding: 5px 30px;
+}
+
+.errormsg {
+	color: red;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+.errormsg-l2 {
+	font-size: 12px;
+	font-weight: 900
+}
+
+.successmsg {
+        color: #27FF00;
+        font-size: 16px;
+        font-weight: 900;
+}
+
+div.error, label.error {
+	width: 75%;
+	background-color: #d9ded9;
+	border: red 5px solid;
+	 border-radius: 5px;
+	padding: 10px;
+}
+
+div.success {
+        width: 75%;
+        background-color: #d9ded9;
+        border: #27FF00 5px solid;
+	border-radius: 5px;
+        padding: 10px;
+}
+
+hr {
+	border: #abcdef 3px solid;
+	height: 0px;
+}

@@ -9,12 +9,6 @@ class dbConnection {
 			"pass"=>"q3tAb5X",
 			"dbname"=>"forms",
 			"dbparams"=>"DEFAULT CHARACTER SET=utf8 COLLATE=utf8_bin");
-// 	protected static $dbConfig = array(
-// 			"host"=>"db635041367.db.1and1.com",
-// 			"user"=>"dbo635041367",
-// 			"pass"=>"y2Eg53Ac",
-// 			"dbname"=>"db635041367",
-// 			"dbparams"=>"DEFAULT CHARACTER SET=utf8 COLLATE=utf8_bin");
 	protected static $trans_dbConfig;
 	protected static $message = "";
 	protected static $instance;

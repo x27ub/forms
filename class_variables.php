@@ -104,13 +104,7 @@ $dbpm = array(
 		"dbname"=>"a_forms",
 		"dbparams"=>"DEFAULT CHARACTER SET=utf8 COLLATE=utf8_bin"
 );
-// $dbpm = array(
-// 			"host"=>"db635041367.db.1and1.com",
-// 			"user"=>"dbo635041367",
-// 			"pass"=>"y2Eg53Ac",
-// 			"dbname"=>"db635041367",
-// 			"dbparams"=>"DEFAULT CHARACTER SET=utf8 COLLATE=utf8_bin"
-// 		);
+
 
 $varsArr = array(
 		"uploadPath"=>"/formsndb/",
